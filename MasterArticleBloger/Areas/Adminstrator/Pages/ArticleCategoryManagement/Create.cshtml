@@ -1,0 +1,19 @@
+﻿@page
+@using P.Application.Contracts.ArticleCategory
+@model MasterArticleBloger.Areas.Adminstrator.Pages.ArticleCategoryManagement.CreateModel
+@{
+}
+<div class="container">
+    <div class="row">
+        
+        <form method="post" class="align-center">
+            <div class="mb-3">
+                
+                <label name ="CategoryArticleCommand.Title" for="CategoryArticleCommand.Title"  class="form-label">Create Article Category</label>
+                <input name ="CategoryArticleCommand.Title" id="CategoryArticleCommand.Title" type="text" class="form-control"  >
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

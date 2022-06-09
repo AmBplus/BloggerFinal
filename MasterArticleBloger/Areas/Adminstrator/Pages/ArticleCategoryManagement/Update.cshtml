@@ -1,0 +1,20 @@
+﻿@page
+@model MasterArticleBloger.Areas.Adminstrator.Pages.ArticleCategoryManagement.UpdateModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <form method="post" >
+            <div class="mb-3">
+                <input type="hidden" asp-for="UpdateCategoryArticle.Id"/>
+                <label asp-for="UpdateCategoryArticle.Title"  class="form-label">Change Title</label>
+                <input asp-for="UpdateCategoryArticle.Title"  type="text" class="form-control"  >
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-primary" asp-page="./List">Back</a>
+        </form>
+    </div>
+</div>
+
