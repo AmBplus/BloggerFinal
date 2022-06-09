@@ -1,4 +1,4 @@
-﻿using P.Domain.Services;
+﻿using P.Domain.Services.ArticleCategoryServices;
 
 namespace P.Domain.ArticleCategoryAgg;
 

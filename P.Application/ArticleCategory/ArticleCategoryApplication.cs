@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using P.Application.Contracts.ArticleCategory;
 using P.Domain.ArticleCategoryAgg;
-using P.Domain.Services;
+using P.Domain.Services.ArticleCategoryServices;
 
 namespace P.Application.ArticleCategory;
 

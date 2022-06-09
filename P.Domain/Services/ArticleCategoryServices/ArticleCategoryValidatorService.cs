@@ -1,13 +1,6 @@
 ﻿using P.Domain.ArticleCategoryAgg;
 
-namespace P.Domain.Services;
-
-public interface IArticleCategoryValidatorService
-{
-    void CheckExitRecord(string title);
-    void GurdAgainstEmptyTitle(string title);
-    void ValidAll(string title);
-}
+namespace P.Domain.Services.ArticleCategoryServices;
 
 public class ArticleCategoryValidatorService : IArticleCategoryValidatorService
 {
@@ -24,7 +17,7 @@ public class ArticleCategoryValidatorService : IArticleCategoryValidatorService
         if (flagExistRecord) throw new Exception("This Record Already Exits");
     }
 
-    public void GurdAgainstEmptyTitle(string title)
+    public void GuardAgainstEmptyTitle(string title)
     {
         if (string.IsNullOrEmpty(title) || string.IsNullOrWhiteSpace(title))
             throw new Exception("Danger => Null Or Empty Or Just White Space => invalid Data");
@@ -32,7 +25,7 @@ public class ArticleCategoryValidatorService : IArticleCategoryValidatorService
 
     public void ValidAll(string title)
     {
-        GurdAgainstEmptyTitle(title);
+        GuardAgainstEmptyTitle(title);
         CheckExitRecord(title);
     }
 }

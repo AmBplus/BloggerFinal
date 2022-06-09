@@ -11,4 +11,8 @@
     <ProjectReference Include="..\P.Domain\P.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Article\" />
+  </ItemGroup>
+
 </Project>
