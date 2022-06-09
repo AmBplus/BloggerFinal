@@ -14,5 +14,6 @@ public class ArticleCategoryMapping : IEntityTypeConfiguration<ArticleCategory>
         builder.Property(x => x.Title).IsRequired();
         builder.Property(x => x.IsDeleted).IsRequired();
         builder.Property(x => x.CreationDate).IsRequired();
+        builder.HasMany(x => x.Articles).WithOne(x => x.ArticleCategor).HasForeignKey(x => x.ArticleCategoryId);
     }
 }

@@ -17,6 +17,7 @@ public class MasterBlogerContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new ArticleCategoryMapping());
+        modelBuilder.ApplyConfiguration(new ArticleMaping());
         base.OnModelCreating(modelBuilder);
     }
 }

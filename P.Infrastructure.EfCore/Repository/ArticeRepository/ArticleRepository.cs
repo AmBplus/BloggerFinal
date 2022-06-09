@@ -2,6 +2,7 @@
 
 namespace P.Infrastructure.EfCore.Repository.ArticeRepository;
 
-public class ArticleRepository :IArticleRepository
+public class ArticleRepository : IArticleRepository
 {
+
 }
