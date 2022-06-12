@@ -5,9 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Onion.Presentation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/css/style.css" asp-append-version="true">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/vendor/font-awesome/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -31,7 +35,7 @@
                         <a class="nav-link text-dark" asp-area="Adminstrator" asp-page="/ArticleCategoryManagement/List">ArticleCategoryManagement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="">ArticleManagement</a>
+                        <a class="nav-link text-dark" asp-area="Adminstrator" asp-page="/ArticleManagement/Index">ArticleManagement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="">CommentManagement</a>
@@ -46,13 +50,10 @@
     </nav>
 </header>
 
-<div class="container">
-    <main role="main" class="pb-3">
         @RenderBody()
-    </main>
-</div>
 
-<footer class="border-top footer text-muted">
+
+<footer class="border-top footer text-muted fixed-bottom" >
     <div class="container">
         &copy; 2022 - Onion.Presentation - <a asp-area="" asp-page="/Privacy">Privacy</a>
     </div>

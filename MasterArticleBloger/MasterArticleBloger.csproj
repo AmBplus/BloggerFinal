@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +24,7 @@
     <ProjectReference Include="..\P.Application\P.Application.csproj" />
     <ProjectReference Include="..\P.Domain\P.Domain.csproj" />
     <ProjectReference Include="..\P.Infrastructure.EfCore\P.Infrastructure.EfCore.csproj" />
+    <ProjectReference Include="..\P.ValidationsModels\P.ValidationsModels.csproj" />
   </ItemGroup>
 
 </Project>

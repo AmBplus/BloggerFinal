@@ -1,5 +1,4 @@
 ﻿@page
-@using P.Application.ArticleCategory
 @model MasterArticleBloger.Areas.Adminstrator.Pages.ArticleCategoryManagement.IndexModel
 @{
 }
@@ -8,7 +7,7 @@
     <div class="card-header">
         <h3 class="float-left">Article Category List</h3>
         <div class="float-right">
-            <a class="btn btn-success"  asp-area="Adminstrator" asp-page="/ArticleCategoryManagement/Create">Add New</a>
+            <a class="btn btn-success"  asp-area="Adminstrator" asp-page="/ArticleCategoryyManagement/Create">Add New</a>
         </div>
     </div>
     <div class="card-body">
@@ -44,21 +43,19 @@
                         }
                     </td>
                     <td>@article.CreationDate</td>
-                    <td><a asp-area="Adminstrator" asp-page="/ArticleCategoryManagement/Update" asp-route-id="@article.Id" class="btn btn-warning">Update</a></td>
-                    <td>@if (article.IsDeleted)
+                    <td><a asp-area="Adminstrator" asp-page="/ArticleCategoryyManagement/Update" asp-route-id="@article.Id" class="btn btn-warning">Update</a></td>
+                    <td>
+                        <form method="post" asp-page-handler="ReStatus">
+                        @if (article.IsDeleted)
                         {
-                            <form method="post" asp-page-handler="ReStatus">
-                                <button type="submit" class="btn btn-success">Active</button>
-                                <input type="hidden" name="id" value="@article.Id"/>
-                            </form>
+                            <button type="submit" class="btn btn-success">Active</button>
                         }
                         else
                         {
-                            <form method="post" asp-page-handler="ReStatus">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                                <input type="hidden" name="id" value="@article.Id"/>
-                            </form>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         }
+                            <input type="hidden" name="id" value="@article.Id"/>
+                        </form>
                     </td>
                     </tr>
                 i++;

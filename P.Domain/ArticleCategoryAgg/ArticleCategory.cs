@@ -10,6 +10,11 @@ public class ArticleCategory
     public bool IsDeleted { get; private set; }
     public DateTime CreationDate { get; }
     public ICollection<Article> Articles { get; set; }
+
+    protected ArticleCategory()
+    {
+    }
+
     public ArticleCategory(string title, IArticleCategoryValidatorService validateService)
     {
         validateService.ValidAll(title);
@@ -17,7 +22,7 @@ public class ArticleCategory
          IsDeleted = false;
          CreationDate = DateTime.Now;
          Articles = new List<Article>();
-     }
+    }
 
     public void ReTitle(string title)
     {

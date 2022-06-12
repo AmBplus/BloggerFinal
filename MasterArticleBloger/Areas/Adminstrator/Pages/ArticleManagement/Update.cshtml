@@ -1,0 +1,59 @@
+﻿@page
+@model MasterArticleBloger.Areas.Adminstrator.Pages.ArticleManagement.UpdateModel
+@{
+}
+<div class="content">
+    <div class="container">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+            <div class="col-md-12">
+                <div class="form h-100">
+                    <h3>Create Article</h3>
+                    <form class="mb-5" method="post">
+                        <div class="row">
+                            <div class="col-md-12 form-group mb-3">
+                                <label asp-for="UpdateArticle.Title" class="col-form-label">Title* </label>
+                                <input asp-for="UpdateArticle.Title" class="form-control" placeholder="Write Title"></input>
+                                 <span class="text-danger"  asp-validation-for="UpdateArticle.Title"></span>
+                            </div>
+                            <div class="col-md-12 form-group mb-3">
+                                <label asp-for="UpdateArticle.Image" class="col-form-label">Image Path* </label>
+                                <input asp-for="UpdateArticle.Image" class="form-control" placeholder="Enter Yoyr Image Path"></input>
+                                 <span class="text-danger" asp-validation-for="UpdateArticle.Image"></span>
+                            </div>
+
+                            <div class="col-md-12 form-group mb-3">
+                                <label asp-for="UpdateArticle.ShortDescription" class="col-form-label">ShortDescription *</label>
+                                <input asp-for="UpdateArticle.ShortDescription" class="form-control" placeho holder="ShortDescription">
+                                 <span class="text-danger" asp-validation-for="UpdateArticle.ShortDescription"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group mb-3">
+                                <label asp-for="UpdateArticle.ArticleCategoryId" class="col-form-label form-check">Select Article Category *</label>
+                                <select asp-for="UpdateArticle.ArticleCategoryId" class="custom-select" asp-items="Model.SelectCategoryListItems">
+                                    <option selected>Choose...</option>
+                                </select>
+                                 <span class="text-danger" asp-validation-for="UpdateArticle.ArticleCategoryId"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group mb-3">
+                                <label asp-for="UpdateArticle.Content" class="col-form-label">Content </label>
+                                <textarea asp-for="UpdateArticle.Content" class="form-control" cols="30" rows="4" placeholder="Write your Content"></textarea>
+                                 <span class="text-danger" asp-validation-for="UpdateArticle.Content"></span>
+                            </div>
+                        </div>
+                        <input type="hidden" asp-for="UpdateArticle.Id" />
+                         <span class="text-danger" asp-validation-for="UpdateArticle.Id"></span>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="submit" value="Send Message" class="btn btn-primary rounded py-2 px-4">
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

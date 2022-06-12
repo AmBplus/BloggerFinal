@@ -7,8 +7,12 @@ namespace P.Application.ArticleCategory;
 
 public class ArticleCategoryApplication : IArticleCategoryApplication
 {
-    private readonly IArticleCategoryRepository _articleCategoryRepository;
-    private readonly IArticleCategoryValidatorService _articleValidatorArticleCategory;
+    private IArticleCategoryRepository _articleCategoryRepository { get; }
+    private IArticleCategoryValidatorService _articleValidatorArticleCategory { get; }
+
+    protected ArticleCategoryApplication()
+    {
+    }
 
     public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository,
         IArticleCategoryValidatorService articleValidatorArticleCategory)
