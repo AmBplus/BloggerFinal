@@ -8,7 +8,7 @@ public class Comment
     public string Name { get; }
     public string Email { get; }
     public string Message { get; }
-    public byte Status { get; }
+    public byte Status { get; private set; }
     public DateTime CreationDate { get; }
     public long ArticleId { get; }
     public Article Article { get; private set; }
@@ -21,5 +21,10 @@ public class Comment
         ArticleId = articleId;
         CreationDate = DateTime.Now;
         Status = Statuses.NotDefined;
+    }
+
+    public void ChangeStatus(byte status)
+    {
+        Status = status;
     }
 }

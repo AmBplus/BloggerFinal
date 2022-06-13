@@ -43,7 +43,7 @@
                         }
                     </td>
                     <td>@article.CreationDate</td>
-                    <td><a asp-area="Adminstrator" asp-page="/ArticleCategoryyManagement/Update" asp-route-id="@article.Id" class="btn btn-warning">Update</a></td>
+                    <td><a asp-area="Adminstrator" asp-page="/ArticleCategoryManagement/Update" asp-route-id="@article.Id" class="btn btn-warning">Update</a></td>
                     <td>
                         <form method="post" asp-page-handler="ReStatus">
                         @if (article.IsDeleted)

@@ -17,4 +17,23 @@ public class CommentApplication : ICommentApplication
         CommentRepository.AddAndSave(new Domain.CommentAgg.Comment(comment.Name, comment.Email,
             comment.Message, comment.ArticleId));
     }
+
+    public List<CommentViewModel> GetAllViewModels()
+    {
+        return CommentRepository.GetList<CommentViewModel>();
+    }
+
+    public void RemoveComment(long id)
+    {
+        Domain.CommentAgg.Comment? comment = CommentRepository.Get(id);
+        comment?.ChangeStatus(Statuses.Cancel);
+        CommentRepository.Save();
+    }
+
+    public void ConfirmOrActive(long id)
+    {
+        Domain.CommentAgg.Comment? comment = CommentRepository.Get(id);
+        comment?.ChangeStatus(Statuses.Confirm);
+        CommentRepository.Save();
+    }
 }

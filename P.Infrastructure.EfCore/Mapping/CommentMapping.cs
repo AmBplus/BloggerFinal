@@ -16,6 +16,7 @@ public class CommentMapping : IEntityTypeConfiguration<Comment>
         builder.Property(x => x.Message).HasMaxLength(500);
         builder.Property(x => x.Name).HasMaxLength(150);
         builder.Property(x => x.Status);
+        builder.Property(x => x.CreationDate);
         builder.HasOne(x => x.Article).WithMany(x => x.Comments).HasForeignKey(x => x.ArticleId);
     }
 }
