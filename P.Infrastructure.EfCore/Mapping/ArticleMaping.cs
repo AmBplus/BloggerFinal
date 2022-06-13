@@ -18,5 +18,6 @@ public class ArticleMaping : IEntityTypeConfiguration<Article>
         builder.Property(x => x.Image);
         builder.Property(x => x.ShortDescription);
         builder.HasOne(x => x.ArticleCategory).WithMany(x => x.Articles).HasForeignKey(x => x.ArticleCategoryId);
+        builder.HasMany(x => x.Comments).WithOne(x => x.Article).HasForeignKey(x => x.ArticleId);
     }
 }

@@ -10,6 +10,7 @@
     <Folder Include="Mapping\" />
     <Folder Include="Repository\ArticleCategoryRepository\" />
     <Folder Include="Repository\ArticeRepository\" />
+    <Folder Include="Repository\CommentRepository\" />
   </ItemGroup>
 
   <ItemGroup>

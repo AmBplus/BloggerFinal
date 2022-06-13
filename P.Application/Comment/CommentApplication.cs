@@ -2,6 +2,6 @@
 
 namespace P.Application.Comment;
 
-public class CommentApplication    : ICommentApplication
+public class CommentApplication : ICommentApplication
 {
 }

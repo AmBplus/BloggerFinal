@@ -1,4 +1,6 @@
-﻿using P.Domain.ArticleCategoryAgg;
+﻿using Microsoft.VisualBasic;
+using P.Domain.ArticleCategoryAgg;
+using P.Domain.CommentAgg;
 using P.Domain.Services.ArticleServices;
 
 namespace P.Domain.ArticleAgg;
@@ -30,6 +32,7 @@ public class Article
     public bool IsDeleted { get; private set; }
     public long ArticleCategoryId { get; private set; }
     public ArticleCategory ArticleCategory { get; private set; }
+    public IList<Comment> Comments { get; private set; }
 
     public void Update(IArticleValidatorServices articleValidator, string title, string shortDescription, string image,
         long articleCategoryId,
@@ -40,6 +43,7 @@ public class Article
         Image = image;
         Content = content;
         ArticleCategoryId = articleCategoryId;
+        Comments = new List<Comment>();
     }
 
     public void ChangeState(bool state)
