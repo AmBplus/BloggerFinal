@@ -4,5 +4,4 @@ namespace P.Infrastructure.EfCore.Repository.CommentRepository;
 
 public class CommentRepository : ICommentRepository
 {
-
 }
