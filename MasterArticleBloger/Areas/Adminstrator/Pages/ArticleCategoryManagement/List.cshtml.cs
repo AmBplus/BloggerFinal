@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using P.Application.Contracts.ArticleCategory;
 
-namespace MasterArticleBloger.Areas.Adminstrator.Pages.ArticleCategoryManagement;
+namespace MasterArticleBlogger.Areas.Adminstrator.Pages.ArticleCategoryManagement;
 
 public class IndexModel : PageModel
 {

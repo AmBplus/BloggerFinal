@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity framework Core Insfr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P.Infrastructure.EfCore", "P.Infrastructure.EfCore\P.Infrastructure.EfCore.csproj", "{5FA59F9A-2936-42BA-B2D0-F65E786AA912}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterArticleBloger", "MasterArticleBloger\MasterArticleBloger.csproj", "{B77A0DBB-761C-4363-AFE8-C8A3A4929EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterArticleBlogger", "MasterArticleBloger\MasterArticleBlogger.csproj", "{B77A0DBB-761C-4363-AFE8-C8A3A4929EDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{CC01C24D-9CD5-451E-9B51-293C7DF5CD02}"
 EndProject
@@ -38,6 +38,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Query", "Query", "{75FCE501-FCC6-4FB4-9590-F957C89B8CFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P.Query", "P.Query\P.Query.csproj", "{02EEE3FC-9B7C-48D6-A606-EA0A87FDB86D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A44BE7D0-8B21-4124-9334-56F9ABE628B9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

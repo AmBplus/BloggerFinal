@@ -1,7 +1,8 @@
 ﻿@page "{Id:long}"
-@using MasterArticleBloger.Pages
-@using Microsoft.AspNetCore.Mvc.TagHelpers
-@model MasterArticleBloger.Pages.Detail_ArticleModel
+
+
+
+@model DetailArticleModel
 @{
     ViewData["Title"] = "ArticleDetails";
 }
@@ -9,12 +10,12 @@
 <main class="post blog-post col-lg-12">
     <div class="container">
         @{
-            if (Detail_ArticleModel.CommentStatus == "Succeed")
+            if (DetailArticleModel.CommentStatus == "Succeed")
             {
                 <div class="alert alert-success d-flex justify-content-center p-2 text-bold " role="alert">
                     <span class="d-flex justify-content-center align-items-center text-big"> Your Comment Was Sent Successfully</span>
                 </div>
-                Detail_ArticleModel.CommentStatus = "";
+                DetailArticleModel.CommentStatus = "";
      
             }
         }
@@ -38,7 +39,7 @@
                     <div class="d-flex align-items-center flex-wrap">
                         <div class="date">
                             <i class="icon-clock"></i> @Model.Article.CreationDate</div>
-                        <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                        <div class="comments meta-last"><i class="icon-comment"></i>@(Model.Article.Count)</div>
                     </div>
                 </div>
                 <div class="post-body">
@@ -52,17 +53,20 @@
                 <header>
                     <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
                 </header>
-                <div class="comment">
-                    <div class="comment-header d-flex justify-content-between">
-                        <div class="user d-flex align-items-center">
-                            <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                            <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
+                @foreach (var comment in @Model.Article.CommentsToUser)
+                {
+                    <div class="comment">
+                        <div class="comment-header d-flex justify-content-between">
+                            <div class="user d-flex align-items-center">
+                                <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                                <div class="title"><strong>@(comment.Name)</strong><span class="date">@(comment.CreationDate)</span></div>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            <p>@(comment.Message)</p>
                         </div>
                     </div>
-                    <div class="comment-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    </div>
-                </div>
+                }
             </div>
 
             <div class="add-comment">

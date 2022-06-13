@@ -1,4 +1,6 @@
-﻿namespace P.Application.Contracts.Article;
+﻿using P.Application.Contracts.Comment;
+
+namespace P.Application.Contracts.Article;
 
 public class ArticleToUserFullViewModel
 {
@@ -8,4 +10,6 @@ public class ArticleToUserFullViewModel
     public string CreationDate { get; set; }
     public string Content { get; set; }
     public string Image { get; set; }
+    public IEnumerable<CommentToUserViewModel> CommentsToUser { get; set; }
+    public long Count { get; set; }
 }

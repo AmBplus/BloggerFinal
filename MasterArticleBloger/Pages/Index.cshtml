@@ -1,6 +1,5 @@
 ﻿@page
-@using Microsoft.VisualBasic
-@model MasterArticleBloger.Pages.IndexModel
+@model MasterArticleBlogger.Pages.IndexModel
 
 <div class="container">
     <div class="row">
@@ -12,22 +11,22 @@
                     @foreach (var article in Model.Articles)
                     {
                         <div class="post col-xl-6">
-                            <div class="post-thumbnail"><a asp-page="Detail_Article" asp-route-id="@(article.Id)"><img src="@(article.Image)" alt="..." class="img-fluid"></a></div>
+                            <div class="post-thumbnail"><a asp-page="DetailArticle" asp-route-id="@(article.Id)"><img src="@(article.Image)" alt="..." class="img-fluid"></a></div>
                             <div class="post-details">
                                 <div class="post-meta d-flex justify-content-between">
                                     <div class="date meta-last">@(article.CreationDate)</div>
-                                    <div class="category"><a asp-page="Detail_Article" asp-route-id="@(article.Id)">@(article.ArticleCategory)</a></div>
-                                </div><a asp-page="Detail_Article" asp-route-id="@(article.Id)">
+                                    <div class="category"><a asp-page="DetailArticle" asp-route-id="@(article.Id)">@(article.ArticleCategory)</a></div>
+                                </div><a asp-page="DetailArticle" asp-route-id="@(article.Id)">
                                     <h3 class="h4">@(article.Title)</h3>
                                 </a>
                                 <p class="text-muted">@(article.ShortDescription)</p>
                                 <div class="post-footer d-flex align-items-center">
-                                    <a asp-page="Detail_Article" asp-route-id="@(article.Id)" class="author d-flex align-items-center flex-wrap">
+                                    <a asp-page="DetailArticle" asp-route-id="@(article.Id)" class="author d-flex align-items-center flex-wrap">
                                         <div class="avatar"><img src="img/avatar-2.jpg" alt="..." class="img-fluid"></div>
                                         <div class="title"><span>John Doe</span></div>
                                     </a>
                                     <div class="date"><i class="icon-clock"></i> 2 months ago</div>
-                                    <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                                    <div class="comments meta-last"><i class="icon-comment"></i>@(article.Count)</div>
                                 </div>
                             </div>
                         </div>

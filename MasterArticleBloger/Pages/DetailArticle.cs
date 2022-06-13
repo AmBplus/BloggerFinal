@@ -3,19 +3,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using P.Application.Contracts.Article;
 using P.Application.Contracts.Comment;
 
-namespace MasterArticleBloger.Pages;
+namespace MasterArticleBlogger.Pages;
 
-public class Detail_ArticleModel : PageModel
+public class DetailArticleModel : PageModel
 {
-    private IArticleToUserQuery articleToUserQuery { get; set; }
-    public ArticleToUserFullViewModel Article { get; set; }
+    private IArticleToUserQuery ArticleToUserQuery { get; set; }
+    public ArticleToUserFullViewModel? Article { get; set; }
     [BindProperty] public AddComment Comment { get; set; }
     private ICommentApplication CommentApplication { get; }
     public static string CommentStatus { get; set; }
 
-    public Detail_ArticleModel(IArticleToUserQuery articleToUserQuery, ICommentApplication commentApplication)
+    public DetailArticleModel(IArticleToUserQuery articleToUserQuery, ICommentApplication commentApplication)
     {
-        this.articleToUserQuery = articleToUserQuery;
+        ArticleToUserQuery = articleToUserQuery;
         CommentApplication = commentApplication;
     }
 
@@ -32,7 +32,7 @@ public class Detail_ArticleModel : PageModel
 
     public void OnGet(long id)
     {
-        Article = articleToUserQuery.GetArticleToUserFullViewModel(id);
+        Article = ArticleToUserQuery.GetArticleToUserFullViewModel(id);
         if (Article == null) return;
     }
 }

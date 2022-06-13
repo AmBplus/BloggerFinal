@@ -3,41 +3,40 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using P.Application.Contracts.ArticleCategory;
 
-namespace MasterArticleBloger.Areas.Adminstrator.Pages.ArticleCategoryManagement
+namespace MasterArticleBlogger.Areas.Adminstrator.Pages.ArticleCategoryManagement;
+
+public class UpdateModel : PageModel
 {
-    public class UpdateModel : PageModel
+    public UpdateModel(IArticleCategoryApplication articleCategoryApplication)
     {
-        public UpdateModel(IArticleCategoryApplication articleCategoryApplication)
+        ArticleCategoryApplication = articleCategoryApplication;
+    }
+
+    private IArticleCategoryApplication ArticleCategoryApplication { get; set; }
+    [BindProperty] public UpdateCategoryArticle? UpdateCategoryArticle { get; set; }
+
+    public IActionResult OnGet(long id)
+    {
+        UpdateCategoryArticle = ArticleCategoryApplication.GetUpdateCategoryArticle(id);
+        RequestHeaders? typedHeaders =
+            HttpContext.Request.GetTypedHeaders();
+
+        string? httpReferer =
+            typedHeaders?.Referer?.AbsoluteUri;
+        if (UpdateCategoryArticle == null)
         {
-            ArticleCategoryApplication = articleCategoryApplication;
+            if (httpReferer == null)
+                return RedirectToPage("/Index");
+            return RedirectToPage(httpReferer);
         }
 
-        private IArticleCategoryApplication ArticleCategoryApplication { get; set; }
-        [BindProperty] public UpdateCategoryArticle? UpdateCategoryArticle { get; set; }
-
-        public IActionResult OnGet(long id)
-        {
-            UpdateCategoryArticle = ArticleCategoryApplication.GetUpdateCategoryArticle(id);
-            RequestHeaders? typedHeaders =
-                HttpContext.Request.GetTypedHeaders();
-
-            string? httpReferer =
-                typedHeaders?.Referer?.AbsoluteUri;
-            if (UpdateCategoryArticle == null)
-            {
-                if (httpReferer == null)
-                    return RedirectToPage("/Index");
-                return RedirectToPage(httpReferer);
-            }
-
-            return Page();
-        }
+        return Page();
+    }
 
 
-        public RedirectToPageResult OnPost()
-        {
-            ArticleCategoryApplication.Update(UpdateCategoryArticle);
-            return RedirectToPage("./List");
-        }
+    public RedirectToPageResult OnPost()
+    {
+        ArticleCategoryApplication.Update(UpdateCategoryArticle);
+        return RedirectToPage("./List");
     }
 }

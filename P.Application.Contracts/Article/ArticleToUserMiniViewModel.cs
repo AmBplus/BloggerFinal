@@ -8,4 +8,5 @@ public class ArticleToUserMiniViewModel
     public string CreationDate { get; set; }
     public string Image { get; set; }
     public string ShortDescription { get; set; }
+    public long Count { get; set; }
 }
