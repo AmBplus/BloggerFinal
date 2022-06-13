@@ -11,6 +11,7 @@ using P.Domain.Services.ArticleServices;
 using P.Infrastructure.EfCore;
 using P.Infrastructure.EfCore.Repository.ArticeRepository;
 using P.Infrastructure.EfCore.Repository.ArticleCategoryRepository;
+using P.Query;
 
 namespace Insfrustucture.Configuration;
 
@@ -30,5 +31,7 @@ public class Bootstrapper
         services.AddTransient<IArticleRepository, ArticleRepository>();
         services.AddTransient<IArticleApplication, ArticleApplication>();
         services.AddTransient<IArticleValidatorServices, ArticleValidatorServices>();
+        // Add Query library To Bootstrapper
+        services.AddTransient<IArticleToUserQuery, ArticleToUserQuery>();
     }
 }

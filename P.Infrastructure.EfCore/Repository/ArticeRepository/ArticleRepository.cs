@@ -83,6 +83,11 @@ public class ArticleRepository : IArticleRepository
         return _context.Articles.FirstOrDefault(x => x.Id == id);
     }
 
+    public bool CheckExits(string title)
+    {
+        return _context.Articles.Any(x => x.Title == title);
+    }
+
     public void Save()
     {
         _context.SaveChanges();

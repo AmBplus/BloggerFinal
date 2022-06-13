@@ -1,20 +1,24 @@
 ﻿using P.Application.Contracts.Article;
 using P.Domain.ArticleAgg;
+using P.Domain.Services.ArticleServices;
 
 namespace P.Application.Article;
 
 public class ArticleApplication : IArticleApplication
 {
-    protected ArticleApplication()
+    protected ArticleApplication(IArticleValidatorServices articleValidator)
     {
+        this.articleValidator = articleValidator;
     }
 
-    public ArticleApplication(IArticleRepository articleRepository)
+    public ArticleApplication(IArticleRepository articleRepository, IArticleValidatorServices articleValidator)
     {
         _articleRepository = articleRepository;
+        this.articleValidator = articleValidator;
     }
 
     private IArticleRepository _articleRepository { get; }
+    private IArticleValidatorServices articleValidator { get; }
 
     public IEnumerable<ArticleViewModel> List()
     {
@@ -31,14 +35,14 @@ public class ArticleApplication : IArticleApplication
     public void Add(ICreateArticle command)
     {
         _articleRepository.Add(new Domain.ArticleAgg.Article
-        (command.Title, command.ShortDescription, command.Image,
+        (articleValidator, command.Title, command.ShortDescription, command.Image,
             command.ArticleCategoryId, command.Content));
     }
 
     public void Update(IUpdateArticle updateArticle)
     {
         Domain.ArticleAgg.Article findArticle = _articleRepository.Getby(updateArticle.Id);
-        findArticle.Update(updateArticle.Title, updateArticle.ShortDescription,
+        findArticle.Update(articleValidator, updateArticle.Title, updateArticle.ShortDescription,
             updateArticle.Image, updateArticle.ArticleCategoryId, updateArticle.Content);
         _articleRepository.Save();
     }

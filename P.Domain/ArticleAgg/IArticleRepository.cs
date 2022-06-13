@@ -9,5 +9,6 @@ public interface IArticleRepository
     T? GetUpdateArticle<T>(long id) where T : IUpdateArticle, new();
     void Add(Article entity);
     Article Getby(long id);
+    bool CheckExits(string title);
     void Save();
 }

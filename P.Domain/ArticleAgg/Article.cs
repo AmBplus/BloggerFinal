@@ -1,10 +1,12 @@
 ﻿using P.Domain.ArticleCategoryAgg;
+using P.Domain.Services.ArticleServices;
 
 namespace P.Domain.ArticleAgg;
 
 public class Article
 {
-    public Article(string title, string shortDescription, string image, long articleCategoryId, string content = "")
+    public Article(IArticleValidatorServices articleValidator, string title, string shortDescription, string image,
+        long articleCategoryId, string content = "")
     {
         Title = title;
         ShortDescription = shortDescription;
@@ -29,7 +31,8 @@ public class Article
     public long ArticleCategoryId { get; private set; }
     public ArticleCategory ArticleCategory { get; private set; }
 
-    public void Update(string title, string shortDescription, string image, long articleCategoryId,
+    public void Update(IArticleValidatorServices articleValidator, string title, string shortDescription, string image,
+        long articleCategoryId,
         string content = "")
     {
         Title = title;
