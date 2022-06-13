@@ -1,4 +1,5 @@
 ﻿@page "{Id:long}"
+@using MasterArticleBloger.Pages
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model MasterArticleBloger.Pages.Detail_ArticleModel
 @{
@@ -7,6 +8,16 @@
 
 <main class="post blog-post col-lg-12">
     <div class="container">
+        @{
+            if (Detail_ArticleModel.CommentStatus == "Succeed")
+            {
+                <div class="alert alert-success d-flex justify-content-center p-2 text-bold " role="alert">
+                    <span class="d-flex justify-content-center align-items-center text-big"> Your Comment Was Sent Successfully</span>
+                </div>
+                Detail_ArticleModel.CommentStatus = "";
+     
+            }
+        }
         <div class="post-single">
             <div class="post-thumbnail">
                 <img src="@Model.Article.Image" alt="@Model.Article.Title" title="@Model.Article.Title" class="img-fluid">
@@ -37,29 +48,49 @@
                     @Model.Article.Content
                 </div>
             </div>
-
-                <div class="add-comment">
-                    <header>
-                        <h3 class="h6">Leave a reply</h3>
-                    </header>
-                    <form class="commenting-form" method="post">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="Name" id="Name" placeholder="Name" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" name="Email" id="Email" placeholder="Email Address (will not be published)" class="form-control">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <textarea name="Message" id="Message" placeholder="Type your comment" class="form-control"></textarea>
-                            </div>
-                            <input type="hidden" name="ArticleId" value=""/>
-                            <div class="form-group col-md-12">
-                                <button type="submit" class="btn btn-secondary">Submit Comment</button>
-                            </div>
+            <div class="post-comments">
+                <header>
+                    <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
+                </header>
+                <div class="comment">
+                    <div class="comment-header d-flex justify-content-between">
+                        <div class="user d-flex align-items-center">
+                            <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                            <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="comment-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="add-comment">
+                <header>
+                    <h3 class="h6">Leave a reply</h3>
+                </header>
+                <form class="commenting-form" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input asp-for="Comment.Name" placeholder="Name" class="form-control">
+                            <span asp-validation-for="Comment.Name" class="text-red"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" asp-for="Comment.Email" placeholder="Email Address (will not be published)" class="form-control">
+                            <span asp-validation-for="Comment.Email" class="text-red"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <textarea asp-for="Comment.Message" placeholder="Type your comment" class="form-control"></textarea>
+                            <span asp-validation-for="Comment.Message" class="text-red"></span>
+                        </div>
+                        <input type="hidden" asp-for="Comment.ArticleId" value="@Model.Article.Id"/>
+                        <div class="form-group col-md-12">
+                            <button type="submit" class="btn btn-secondary">Submit Comment</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
+    </div>
 </main>

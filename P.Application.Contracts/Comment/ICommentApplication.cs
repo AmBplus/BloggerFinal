@@ -2,4 +2,5 @@
 
 public interface ICommentApplication
 {
+    void AddAndSave(AddComment comment);
 }

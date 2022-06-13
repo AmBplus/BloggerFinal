@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="ArticleAgg\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Services\CommentServices\" />
   </ItemGroup>
 
 </Project>
