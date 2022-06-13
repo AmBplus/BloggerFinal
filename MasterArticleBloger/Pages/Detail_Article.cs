@@ -16,9 +16,6 @@ public class Detail_ArticleModel : PageModel
     public void OnGet(long id)
     {
         Article = articleToUserQuery.GetArticleToUserFullViewModel(id);
-        if (Article==null)
-        {
-                        return;
-        }
+        if (Article == null) return;
     }
 }
