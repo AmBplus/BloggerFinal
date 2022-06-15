@@ -41,7 +41,7 @@ public class ArticleApplication : IArticleApplication
 
     public void Update(IUpdateArticle updateArticle)
     {
-        Domain.ArticleAgg.Article findArticle = _articleRepository.Getby(updateArticle.Id);
+        Domain.ArticleAgg.Article findArticle = _articleRepository.GetBy(updateArticle.Id);
         findArticle.Update(articleValidator, updateArticle.Title, updateArticle.ShortDescription,
             updateArticle.Image, updateArticle.ArticleCategoryId, updateArticle.Content);
         _articleRepository.Save();
@@ -60,7 +60,7 @@ public class ArticleApplication : IArticleApplication
 
     public void ReStatus(long id)
     {
-        Domain.ArticleAgg.Article findArticle = _articleRepository.Getby(id);
+        Domain.ArticleAgg.Article findArticle = _articleRepository.GetBy(id);
         findArticle.ChangeState(!findArticle.IsDeleted);
         _articleRepository.Save();
     }

@@ -1,25 +1,24 @@
-﻿using P.Domain.ArticleAgg;
+﻿using _01_Framework.Domain;
+using P.Domain.ArticleAgg;
 
 namespace P.Domain.CommentAgg;
 
-public class Comment
+public class Comment : BaseModel<long>
 {
-    public long Id { get; private set; }
     public string Name { get; }
     public string Email { get; }
     public string Message { get; }
     public byte Status { get; private set; }
-    public DateTime CreationDate { get; }
     public long ArticleId { get; }
     public Article Article { get; private set; }
+    protected Comment() : base() { }
 
-    public Comment(string name, string email, string message, long articleId)
+    public Comment(string name, string email, string message, long articleId) : base()
     {
         Name = name;
         Email = email;
         Message = message;
         ArticleId = articleId;
-        CreationDate = DateTime.Now;
         Status = Statuses.NotDefined;
     }
 

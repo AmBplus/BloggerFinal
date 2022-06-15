@@ -1,14 +1,11 @@
-﻿namespace P.Domain.ArticleAgg;
+﻿using _01_Framework.Infrastructure;
 
-public interface IArticleRepository
+namespace P.Domain.ArticleAgg;
+
+public interface IArticleRepository : IRepository<long,Article>
 {
     List<IArticleViewModel> GetAllByViewModel();
     List<T> GetAllByViewModelGeneric<T>() where T : IArticleViewModel, new();
-
-    List<Article> GetAll();
     T? GetUpdateArticle<T>(long id) where T : IUpdateArticle, new();
-    void Add(Article entity);
-    Article Getby(long id);
     bool CheckExits(string title);
-    void Save();
 }

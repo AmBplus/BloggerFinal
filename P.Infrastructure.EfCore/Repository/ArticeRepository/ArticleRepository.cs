@@ -1,13 +1,14 @@
 ﻿using System.Globalization;
+using _01_FrameworkEf;
 using Microsoft.EntityFrameworkCore;
 using P.Application.Contracts.Article;
 using P.Domain.ArticleAgg;
 
 namespace P.Infrastructure.EfCore.Repository.ArticeRepository;
 
-public class ArticleRepository : IArticleRepository
+public class ArticleRepository : BaseRepository<long,Article> , IArticleRepository
 {
-    public ArticleRepository(MasterBlogerContext context)
+    public ArticleRepository(MasterBlogerContext context) :base(context)
     {
         _context = context;
     }
@@ -40,7 +41,7 @@ public class ArticleRepository : IArticleRepository
             }).ToList();
     }
 
-    List<Article> IArticleRepository.GetAll()
+    List<Article> GetAll()
     {
         return _context.Articles.ToList();
     }
