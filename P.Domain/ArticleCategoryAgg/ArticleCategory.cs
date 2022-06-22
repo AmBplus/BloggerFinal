@@ -4,17 +4,17 @@ using P.Domain.Services.ArticleCategoryServices;
 
 namespace P.Domain.ArticleCategoryAgg;
 
-public class ArticleCategory :BaseModel<long>
+public class ArticleCategory : BaseModel<long>
 {
     public string Title { get; private set; }
     public bool IsDeleted { get; private set; }
     public ICollection<Article> Articles { get; set; }
 
-    protected ArticleCategory()  :base()
+    protected ArticleCategory()
     {
     }
 
-    public ArticleCategory(string title, IArticleCategoryValidatorService validateService):base()
+    public ArticleCategory(string title, IArticleCategoryValidatorService validateService)
     {
         validateService.ValidAll(title);
         Title = title;

@@ -27,7 +27,7 @@ public class ArticleValidatorServices : IArticleValidatorServices
 
     public void CheckExitField(string fieldName)
     {
-        if (ArticleRepository.CheckExits(fieldName)) throw new DuplicateFieldException(fieldName);
+        if (ArticleRepository.CheckExits(x=>x.Title==fieldName)) throw new DuplicateFieldException(fieldName);
     }
 
     public void CheckAllBySendArticle(Article article)

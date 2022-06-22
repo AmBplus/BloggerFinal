@@ -6,9 +6,9 @@ using P.Domain.ArticleAgg;
 
 namespace P.Infrastructure.EfCore.Repository.ArticeRepository;
 
-public class ArticleRepository : BaseRepository<long,Article> , IArticleRepository
+public class ArticleRepository : BaseRepository<long, Article>, IArticleRepository
 {
-    public ArticleRepository(MasterBlogerContext context) :base(context)
+    public ArticleRepository(MasterBlogerContext context) : base(context)
     {
         _context = context;
     }
@@ -40,12 +40,6 @@ public class ArticleRepository : BaseRepository<long,Article> , IArticleReposito
                 ArticleCategory = x.ArticleCategory.Title
             }).ToList();
     }
-
-    List<Article> GetAll()
-    {
-        return _context.Articles.ToList();
-    }
-
     public T? GetUpdateArticle<T>(long id) where T : IUpdateArticle, new()
     {
         return _context.Articles.Where(x => x.Id == id).Select(x => new T
@@ -58,7 +52,6 @@ public class ArticleRepository : BaseRepository<long,Article> , IArticleReposito
             Title = x.ShortDescription
         }).FirstOrDefault();
     }
-
     public IUpdateArticle? GetUpdateArticle(long id)
     {
         return _context.Articles.Where(x => x.Id == id).Select(x => (IUpdateArticle)new UpdateArticle
@@ -70,27 +63,5 @@ public class ArticleRepository : BaseRepository<long,Article> , IArticleReposito
             ShortDescription = x.ShortDescription,
             Title = x.ShortDescription
         }).FirstOrDefault();
-    }
-
-
-    public void Add(Article entity)
-    {
-        _context.Articles.Add(entity);
-        Save();
-    }
-
-    public Article Getby(long id)
-    {
-        return _context.Articles.FirstOrDefault(x => x.Id == id);
-    }
-
-    public bool CheckExits(string title)
-    {
-        return _context.Articles.Any(x => x.Title == title);
-    }
-
-    public void Save()
-    {
-        _context.SaveChanges();
     }
 }

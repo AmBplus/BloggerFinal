@@ -7,7 +7,7 @@ namespace _01_FrameworkEf;
 
 public class BaseRepository<TKey, T> : IRepository<TKey, T> where T : BaseModel<TKey>
 {
-    private DbContext Context;
+    private readonly DbContext Context;
 
     public BaseRepository(DbContext context)
     {
@@ -21,7 +21,7 @@ public class BaseRepository<TKey, T> : IRepository<TKey, T> where T : BaseModel<
 
     public void Add(T entity)
     {
-        Context.Add<T>(entity);
+        Context.Add(entity);
     }
 
     public T GetBy(TKey id)

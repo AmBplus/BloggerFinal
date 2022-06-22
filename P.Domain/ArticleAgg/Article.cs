@@ -8,7 +8,7 @@ namespace P.Domain.ArticleAgg;
 public class Article : BaseModel<long>
 {
     public Article(IArticleValidatorServices articleValidator, string title, string shortDescription, string image,
-        long articleCategoryId, string content = ""):base()
+        long articleCategoryId, string content = "")
     {
         Title = title;
         ShortDescription = shortDescription;
@@ -18,7 +18,7 @@ public class Article : BaseModel<long>
         IsDeleted = false;
     }
 
-    protected Article() :base()
+    protected Article()
     {
     }
 
@@ -26,7 +26,7 @@ public class Article : BaseModel<long>
     public string ShortDescription { get; private set; }
     public string Image { get; private set; }
     public string Content { get; private set; }
-    
+
     public bool IsDeleted { get; private set; }
     public long ArticleCategoryId { get; private set; }
     public ArticleCategory ArticleCategory { get; private set; }

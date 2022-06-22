@@ -11,9 +11,12 @@ public class Comment : BaseModel<long>
     public byte Status { get; private set; }
     public long ArticleId { get; }
     public Article Article { get; private set; }
-    protected Comment() : base() { }
 
-    public Comment(string name, string email, string message, long articleId) : base()
+    protected Comment()
+    {
+    }
+
+    public Comment(string name, string email, string message, long articleId)
     {
         Name = name;
         Email = email;
