@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\01_FrameworkEf\01_FrameworkEf.csproj" />
+    <ProjectReference Include="..\01_Framework\01_Framework.csproj" />
     <ProjectReference Include="..\P.Application.Contracts\P.Application.Contracts.csproj" />
     <ProjectReference Include="..\P.Domain\P.Domain.csproj" />
   </ItemGroup>

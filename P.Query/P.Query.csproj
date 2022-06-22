@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\P.Application.Contracts\P.Application.Contracts.csproj" />
     <ProjectReference Include="..\P.Infrastructure.EfCore\P.Infrastructure.EfCore.csproj" />
   </ItemGroup>
 
