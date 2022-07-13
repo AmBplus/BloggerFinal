@@ -1,31 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>f8140267-03ce-4e3d-968a-6125cbf63010</UserSecretsId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>f8140267-03ce-4e3d-968a-6125cbf63010</UserSecretsId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\vendor\font-awesome\less\" />
-    <Folder Include="wwwroot\vendor\font-awesome\scss\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\vendor\font-awesome\less\" />
+		<Folder Include="wwwroot\vendor\font-awesome\scss\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Insfrustucture.Configuration\Insfrustucture.Configuration.csproj" />
-    <ProjectReference Include="..\P.Application.Contracts\P.Application.Contracts.csproj" />
-    <ProjectReference Include="..\P.Application\P.Application.csproj" />
-    <ProjectReference Include="..\P.Domain\P.Domain.csproj" />
-    <ProjectReference Include="..\P.Infrastructure.EfCore\P.Infrastructure.EfCore.csproj" />
-    <ProjectReference Include="..\P.ValidationsModels\P.ValidationsModels.csproj" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<ProjectReference Include="..\Insfrustucture.Configuration\Insfrustucture.Configuration.csproj" />
+		<ProjectReference Include="..\P.Application.Contracts\P.Application.Contracts.csproj" />
+		<ProjectReference Include="..\P.Application\P.Application.csproj" />
+		<ProjectReference Include="..\P.Domain\P.Domain.csproj" />
+		<ProjectReference Include="..\P.Infrastructure.EfCore\P.Infrastructure.EfCore.csproj" />
+		<ProjectReference Include="..\P.ValidationsModels\P.ValidationsModels.csproj" />
+	</ItemGroup>
 </Project>
