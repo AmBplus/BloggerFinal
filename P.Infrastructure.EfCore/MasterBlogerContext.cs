@@ -14,6 +14,7 @@ public class MasterBlogerContext : DbContext
 
     public MasterBlogerContext(DbContextOptions<MasterBlogerContext> options) : base(options)
     {
+      
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

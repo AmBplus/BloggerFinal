@@ -26,7 +26,7 @@ public class Bootstrapper
     {
         services.AddDbContext<MasterBlogerContext>(op
             => op.UseSqlServer(connection
-                , x => x.MigrationsAssembly("MasterArticleBloger")
+                , x => x.MigrationsAssembly("MasterArticleBlogger")
             ));
         // ArticleCategoryServices
         services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();

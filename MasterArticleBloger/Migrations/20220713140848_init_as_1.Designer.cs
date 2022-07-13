@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using P.Infrastructure.EfCore;
 
@@ -11,9 +12,10 @@ using P.Infrastructure.EfCore;
 namespace MasterArticleBloger.Migrations
 {
     [DbContext(typeof(MasterBlogerContext))]
-    partial class MasterBlogerContextModelSnapshot : ModelSnapshot
+    [Migration("20220713140848_init_as_1")]
+    partial class init_as_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
